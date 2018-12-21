@@ -12,7 +12,7 @@
     "heroku": "node index.js",
     "travis": "npm run mocha"
   },
-  "author": "RP Boyle",
+  "author": "RP Boyle ",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.4",
