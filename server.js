@@ -15,7 +15,7 @@ const wishlistRoutes = require('./routes/wishlist');
 const accountRoutes = require('./routes/account');
 const Item = require('./models/item');
 
-//********** Need to create Routers and add them below */
+//********** Need to create Routers and add them above */
 
 const app = express();
 
@@ -38,20 +38,7 @@ app.use('/shopping-cart', cartRoutes);
 app.use('/wishlist', wishlistRoutes);
 app.use('account-info', accountRoutes);
 
-
-app.use((req, res, next) => {
-  res.status(200).json({
-    message: 'it worked!'
-  });
-  // Item.find()
-  //   .then(item => {
-  //     console.log(item);
-  //     return res.json(item);
-  //   })
-  //   .catch(err => {
-  //     next(err);
-  //   });
-});
+//need to create an error handler
 
 // app.use((req, res, next) => {
 //   const err = new Error ('Not Found');
@@ -59,7 +46,6 @@ app.use((req, res, next) => {
 //   next(err);
 // });
 
-//need to creat an error handler
 
 if (require.main === module) {
   //  // Connect to DB and Listen for incoming connections

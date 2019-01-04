@@ -23,7 +23,11 @@ router.get('/:itemId', (req, res, next) => {
     .exec()
     .then(doc => {
       console.log(doc);
-      res.status(200).json(doc);
+      if(doc) {
+        res.status(200).json(doc);
+      } else {
+        res.status(404).json({message: 'Not a valid ID'});
+      }
     })
     .catch(err => {
       console.log(err);
@@ -59,10 +63,14 @@ router.post('/', (req, res, next) => {
   
 });
 
-router.delete('/:itemId', (req, res, next) => {
-  res.status(200).json({
-    message: 'deleted item!'
-  });
-});
+// router.delete('/:itemId', (req, res, next) => {
+//   const id = req.params.itemId;
+//   Item.remove({id})
+//     .exec()
+//     .then()
+//   res.status(200).json({
+//     message: 'deleted item!'
+//   });
+// });
 
 module.exports = router;
