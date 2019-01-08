@@ -5,12 +5,13 @@ const mongoose = require('mongoose');
 const itemSchema = new mongoose.Schema({
   title: { type: String, required: true },
   img: { type: String, require: true},
+  price: { type: String, require: true},
   theme: String,
+  productType: String,
   onSale: {
     type: Boolean,
     default: false
   },
-  price: { type: String, require: true},
   inCart: {
     type: Boolean,
     default: false
