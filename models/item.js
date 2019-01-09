@@ -8,6 +8,8 @@ const itemSchema = new mongoose.Schema({
   price: { type: String, require: true},
   theme: String,
   productType: String,
+  quantity: Number,
+  season: String,
   onSale: {
     type: Boolean,
     default: false
