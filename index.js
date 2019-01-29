@@ -33,10 +33,10 @@ app.use(
 
 app.use(express.json());
 
-app.use('/items', itemRoutes);
-app.use('/shopping-cart', cartRoutes);
-app.use('/wishlist', wishlistRoutes);
-app.use('account-info', accountRoutes);
+app.use('/api/items', itemRoutes);
+app.use('/api/shopping-cart', cartRoutes);
+app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/account-info', accountRoutes);
 
 //need to create an error handler
 
