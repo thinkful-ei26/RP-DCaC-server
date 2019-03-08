@@ -13,6 +13,7 @@ const itemRoutes = require('./routes/items');
 const cartRoutes = require('./routes/cart');
 const wishlistRoutes = require('./routes/wishlist');
 const accountRoutes = require('./routes/account');
+const emailRoutes = require('./routes/email');
 const Item = require('./models/item');
 
 //********** Need to create Routers and add them above */
@@ -37,6 +38,7 @@ app.use('/api/items', itemRoutes);
 app.use('/api/shopping-cart', cartRoutes);
 app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/account-info', accountRoutes);
+app.use('/email', emailRoutes);
 
 //need to create an error handler
 
