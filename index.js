@@ -1,21 +1,19 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
+const emailController = require('./email/email.controller');
 const { PORT, CLIENT_ORIGIN, MONGODB_URI } = require('./config');
 const { dbConnect } = require('./db-mongoose');
-require('dotenv').config();
 
 const itemRoutes = require('./routes/items');
 const cartRoutes = require('./routes/cart');
 const wishlistRoutes = require('./routes/wishlist');
 const accountRoutes = require('./routes/account');
-const Item = require('./models/item');
-
-//********** Need to create Routers and add them above */
 
 const app = express();
 
@@ -33,23 +31,15 @@ app.use(
 
 app.use(express.json());
 
+app.post('/email', emailController.collectEmail);
+
 app.use('/api/items', itemRoutes);
 app.use('/api/shopping-cart', cartRoutes);
 app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/account-info', accountRoutes);
 
-//need to create an error handler
-
-// app.use((req, res, next) => {
-//   const err = new Error ('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
-
-
 if (require.main === module) {
-  //  // Connect to DB and Listen for incoming connections
-  mongoose.connect(MONGODB_URI, { useNewUrlParser:true }) //Mongo will automatically create the db here if it doesnt exist, and then mongoose will automatically create any collections that dont already exist by going through your models
+  mongoose.connect(MONGODB_URI, { useNewUrlParser:true })
     .catch(err => {
       console.error(`ERROR: ${err.message}`);
       console.error('\n === Did you remember to start `mongod`? === \n');
