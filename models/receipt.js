@@ -8,7 +8,7 @@ const receiptSchema = new mongoose.Schema({
     required: true },
   firstName: String,
   lastName: String,
-  orderDetails: { type: String, require: true},
+  orderDetails: { type: Array, require: true},
   phone: String,
 });
 

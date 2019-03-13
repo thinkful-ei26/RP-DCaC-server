@@ -11,6 +11,8 @@ exports.collectEmail = (req, res) => {
   const { lastName } = req.body;
   const { phone } = req.body;
   const { orderDetails } = req.body;
+  // const receipt = orderDetails.map(item => )
+  console.log(orderDetails);
 
   Receipt.create({ email, firstName, lastName, phone, orderDetails})
     .then(newReceipt => {
