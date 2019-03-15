@@ -13,7 +13,6 @@ module.exports = {
            <p>I accept payment a few different ways:</p>
               <p>Paypal: dboyle20@comcast.net</p>
               <p>Venmo: Donna-Boyle-6</p></br>
-           <p>Order Details: ${newReceipt.orderDetails}</p>
           <p>The item you purchased will not be taken off the website until after you have paid. It will be put on hold for you for 24 hours while awaiting payment.</p></br>  
           <p>I will reach out to you in order to set up a time for you to pick up your item, or we can arrange shipment.</p></br>
           <p>  - Donna Boyle</p>
@@ -26,7 +25,6 @@ module.exports = {
     html: `<p>Order Name: ${newReceipt.firstName} ${newReceipt.lastName}</p>
            <p>Email: ${newReceipt.email}</p>
            <p>Phone Number: ${newReceipt.phone}</p>
-           <p>Order Details: ${newReceipt.orderDetails}</p>
     `,      
     text: 'Donna\'s Crafts \'n Creations'
   })
